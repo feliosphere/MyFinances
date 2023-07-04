@@ -1,0 +1,12 @@
+// {
+//     "LoanName":
+//         {
+//             "id": LOAN_ID,
+//             "balance": BALANCE_REQ,
+//             "apr": APR_PERCENT,
+//             "loanFee": FEE_PERCENT,
+//             "submittedDate": REQUEST_DATE,
+//             "dueDate": DUE_DATE,
+//             "status": LOAN_STATUS,
+//         }
+// }

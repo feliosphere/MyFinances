@@ -1,0 +1,76 @@
+{
+  "Discover": [
+      {
+        "id": "D1",
+        "balance": 300,
+        "apr": 4.99,
+        "loanFee": 0,
+        "submittedDate": 20221227,
+        "dueDate": 20240404,
+        "status": "onTime"
+      },
+      {
+        "id": "D2",
+        "balance": 6000,
+        "apr": 5.99,
+        "loanFee": 0,
+        "submittedDate": 20230308,
+        "dueDate": 20240704,
+        "status": "onTime"
+      },
+      {
+        "id": "D3",
+        "balance": 3000,
+        "apr": 5.99,
+        "loanFee": 0,
+        "submittedDate": 20230322,
+        "dueDate": 20240704,
+        "status": "onTime"
+      },
+      {
+        "id": "D4",
+        "balance": 1400,
+        "apr": 0,
+        "loanFee": 5,
+        "submittedDate": 20230531,
+        "dueDate": 20240704,
+        "status": "onTime"
+      }
+    ],
+  "Amex":
+    [
+      {
+        "id": "A1PromoAPR",
+        "balance": 700,
+        "apr": 5.99,
+        "loanFee": 0,
+        "submittedDate": 20230524,
+        "dueDate": 20231206,
+        "status": "onTime"
+      }
+    ],
+  "ChaseSapphire":
+    [
+      {
+        "id": "CS1",
+        "balance": 2000,
+        "apr": 0,
+        "loanFee": 5,
+        "submittedDate": 20230328,
+        "dueDate": 20240211,
+        "status": "onTime"
+      }
+    ],
+  "MicroCenter":
+    [
+      {
+        "id": "MC1",
+        "balance": 444.19,
+        "apr": 0,
+        "loanFee": 0,
+        "submittedDate": 20230615,
+        "dueDate": 20231207,
+        "status": "onTime"
+      }
+    ]
+}
