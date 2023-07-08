@@ -7,7 +7,9 @@
     "loanFee": 0,
     "submittedDate": 20221227,
     "dueDate": 20240404,
-    "status": "onTime"
+    "status": "onTime",
+    "type": "Balance Transfer",
+    "loanFeeType": "Percent"
   },
   {
     "creditCard": "Discover",
