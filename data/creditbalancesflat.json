@@ -52,13 +52,33 @@
     "status": "onTime"
   },
   {
-    "creditCard": "ChaseSapphire",
-    "id": "CS1",
+    "creditCard": "ChaseFreedom",
+    "id": "CF1",
     "balance": 2000,
     "apr": 0,
     "loanFee": 5,
     "submittedDate": 20230328,
     "dueDate": 20240211,
+    "status": "onTime"
+  },
+  {
+    "creditCard": "ChaseFreedom",
+    "id": "CF2",
+    "balance": 1900,
+    "apr": 0,
+    "loanFee": 5,
+    "submittedDate": 20221227,
+    "dueDate": 20240111,
+    "status": "onTime"
+  },
+  {
+    "creditCard": "ChaseFreedom",
+    "id": "CF3",
+    "balance": 2000,
+    "apr": 0,
+    "loanFee": 5,
+    "submittedDate": 20220405,
+    "dueDate": 20230611,
     "status": "onTime"
   },
   {

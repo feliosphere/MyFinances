@@ -15,6 +15,7 @@ class LoanPaymentPlan:
         self.lastMonth = self.dfLoans['dueDate'].max()   
 
         self.payOnDate = {}
+        self.creditors = self.dfLoans['creditCard'].unique()
 
     def getFirstMonth(self):
         return self.firstMonth
@@ -26,15 +27,21 @@ class LoanPaymentPlan:
         return self.dfLoans
     
     def setMonthlyPayments(self):
+        prevMonthBalance =  self.dfLoans['totalLoanDue']
         for single_date in pd.date_range(start=self.firstMonth, end=self.lastMonth,freq='MS'):
+            dateMonth =single_date.strftime('%Y-%m')
             conditions = [(self.dfLoans['submittedDate'] > single_date),
                           (self.dfLoans['submittedDate'] < single_date) & (single_date <= self.dfLoans['dueDate']),
                           (self.dfLoans['submittedDate'] > single_date) | (single_date >= self.dfLoans['dueDate'])]
             values = [0,self.dfLoans['totalPayment']/self.dfLoans['monthsToPay'],0]
                     
-            self.dfLoans[single_date.strftime('%Y-%m')] = np.select(conditions,values)
+            self.dfLoans[dateMonth] = np.select(conditions,values)
 
-            self.payOnDate[single_date.strftime('%Y-%m')] = self.dfLoans[single_date.strftime('%Y-%m')].sum()
+            self.dfLoans[dateMonth+"_RemainderBalance"] = prevMonthBalance - self.dfLoans[dateMonth]
+            prevMonthBalance = self.dfLoans[dateMonth+"_RemainderBalance"]
+
+            self.payOnDate[dateMonth] = self.dfLoans[single_date.strftime('%Y-%m')].sum()
+        # self.dfLoans
 
     def MonthsToPay(self, dueDate, requestDate):
         return 12*(dueDate.dt.year-requestDate.dt.year)+(dueDate.dt.month-requestDate.dt.month)-1
@@ -43,6 +50,7 @@ class LoanPaymentPlan:
         total *= ((1+apr/1200)**months)
         return total
     
+
     def getMonthPayment(self, date):
         #TODO check for data format validation
         if date in self.payOnDate.keys():
@@ -52,4 +60,8 @@ class LoanPaymentPlan:
     
     def getBreakDownMonthlyPayment(self, date):
         #TODO check for data format validation and date exist
-        return self.dfLoans[['creditCard', date]]
+        return self.dfLoans.groupby('creditCard').agg({date: 'sum'})
+    
+    def getEndOfMonthBalances(self, date):
+        return self.dfLoans.groupby('creditCard').agg({date+"_RemainderBalance": 'sum'})
+        
